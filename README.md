@@ -4,10 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installing Bootstrap 
 
-npm install bootstrap
-npm install --save @ng-bootstrap/ng-bootstrap --legacy-peer-deps
-npm install @angular/localize --legacy-peer-deps
-ng add @angular/localize
+`npm install bootstrap`
+`npm install --save @ng-bootstrap/ng-bootstrap --legacy-peer-deps`
+`npm install @angular/localize --legacy-peer-deps`
+`ng add @angular/localize`
 
 <!-- In angular.json file add 
 "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css"] -->
