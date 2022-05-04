@@ -14,6 +14,12 @@ ng add @angular/localize
     
 npm install @popperjs/core --save
 
+## Run Json Server First because API is in localhost:3000/posts
+
+If json-server is not installed please use ###npm install -g json-server
+
+json-server --watch db.json
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
