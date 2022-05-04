@@ -1,0 +1,13 @@
+.jumbotron{
+    margin-top: 10%;
+}
+
+.lead{
+    height: 2%;
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}

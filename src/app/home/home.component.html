@@ -1,0 +1,125 @@
+<!-- npm install bootstrap
+      npm install --save @ng-bootstrap/ng-bootstrap --legacy-peer-deps
+      npm install @angular/localize --legacy-peer-deps
+      ng add @angular/localize
+  
+      angular.json file add 
+      "styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"]
+    
+    npm install @popperjs/core --save
+      -->
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_1.jpeg" alt="Justice League">
+    </div>
+    <div class="carousel-caption">
+      <h3>Justice League</h3>
+      <p>Dark</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_2.jpeg" alt="The Batman">
+    </div>
+    <div class="carousel-caption">
+      <h3>The Batman</h3>
+      <p>Batman Forever</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_3.jpeg" alt="Angular Carousel 1">
+    </div>
+    <div class="carousel-caption">
+      <h3>The Green Lantern</h3>
+      <p>The Guardians of the Universe</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_4.jpeg" alt="Angular Carousel 1">
+    </div>
+    <div class="carousel-caption">
+      <h3>The Flash</h3>
+      <p>The Fastest Man Alive</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_5.jpeg" alt="Angular Carousel 1">
+    </div>
+    <div class="carousel-caption">
+      <h3>The Man of Steel</h3>
+      <p>Son of Krypton</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/comic1_1_6.jpeg" alt="Angular Carousel 1">
+    </div>
+    <div class="carousel-caption">
+      <h3>Justice League</h3>
+      <p>Multiverse</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<!-- <div > -->
+  <app-search></app-search>
+<!-- <button class="request"><a routerLink="/comicRequest" ><i class="fa fa-book"></i> Request a Comic</a></button>
+</div> -->
+<app-genre></app-genre>
+<app-not-found [visible]="!comics || comics.length <= 0" resetLinkText="Invalid Search genre or comic">
+</app-not-found>
+
+<ul>
+  <li *ngFor="let comic of comics">
+      <a class="btn btn-lg btn-outline-primary hover03" (click)="open(mymodal)"><img src="{{comic.imageUrl}}" alt=""></a>
+      <div class="content">
+        <div class="name">
+          {{comic.name}}
+        </div>
+        <span class="favorite {{comic.favorite?'':'not'}}">&#9829;</span>
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of comic.origins">
+              {{origin}}
+            </span>
+          </div>
+          <div class="comic-pages">
+            <span>📖</span>
+            {{comic.comicPages}}
+          </div>
+        </div>
+        <div class="price">
+          <div (mouseenter)="changeText=true" (mouseleave)="changeText=false">
+            <span *ngIf="!changeText">Price</span>
+            <span *ngIf="changeText">{{comic.price|currency}}</span>
+          </div>
+        </div>
+        <a (click) = "comicId(comic)" alt="comic images">Add To Cart</a>
+      </div>
+    <ng-template #mymodal let-modal>
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-basic-title"><strong>{{comic.name}}</strong></h2>
+        <img src="{{comic.logo}}" alt="">
+        <!-- <div class="logo">
+          
+        </div> -->
+        <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button> -->
+      </div>
+      <div class="modal-body">
+        <img src="{{comic.imageUrl}}" alt="">
+        {{comic.details}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+<!-- 
+<app-footer></app-footer> -->

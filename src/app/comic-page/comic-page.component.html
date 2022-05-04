@@ -1,0 +1,33 @@
+<app-not-found [visible]="!comic" notFoundMessage="Invalid Comic Number" resetLinkText="Go Back"></app-not-found>
+<!-- <div>
+    
+</div> -->
+<div *ngIf="comic" class="container">
+    <img [src]="comic.imageUrl" [alt]="comic.name">
+    <div class="details">
+        <div class="header">
+            <!-- <span class="logo_comic_page">
+                <img src="{{comic.logo}}" alt="">
+            </span> -->
+            <span class="name">
+                {{comic.name}}
+            </span>
+            <span class="favorite {{comic.favorite?'':'not'}}">&#9829;</span>
+        </div>
+        <div class="origins">
+            <span *ngFor="let origin of comic.origins">{{origin}}</span>
+        </div>
+        <div class="genre">
+            <app-genre [cartPageGenres]="comic.genres" justifyContents="start"></app-genre>
+        </div>
+        <div class="read-time">
+            <span></span>
+            Only <strong>{{comic.comicPages}} mins</strong> to read <strong>{{comic.name}}</strong>
+        </div>
+        <div class="price">
+        </div>
+        <span>{{comic.price|currency}}</span>
+        <button class="btn" (click)="addToCart()">Add to Cart</button>
+    </div>
+</div>
+<p>Would you like to add this comic to Cart?</p>

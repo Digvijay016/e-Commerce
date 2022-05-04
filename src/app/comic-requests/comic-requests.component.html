@@ -1,0 +1,66 @@
+<h1 class="text-center content-title ">Give us a comic book name and description and we will make sure it will be available for you next time.</h1>
+<button class="button bi bi-bag-plus-fill" (click)="AddComic()" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add Comics Request</button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Origins</th>
+      <th>Details</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center" *ngFor="let com of comicData">
+      <td>{{com.id}}</td>
+      <td>{{com.name}}</td>
+      <td>{{com.origins}}</td>
+      <td>{{com.details}}</td>
+      <td id="table_action_cell">
+        <button (click)="EditComics(com)" class="edit" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>&nbsp;
+        <button (click)="deleteComicsRequest(com)" class="delete"><i class="fa fa-trash"></i> Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header modal-header-title">
+        <h1 class="modal-title" id="exampleModalLabel">Comic Request Form</h1>
+        <img class="logo" data-bs-dismiss="modal" src="https://www.freeiconspng.com/uploads/superman-png-25.png">
+        <!-- <button type="button" id="cancel" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body" style="text-align: left !important; color: #520816 !important;;">
+
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label  class="form-label">ID</label>
+            <input type="id" class="form-control" formControlName = "id" >
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName = "name">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Origins</label>
+            <input type="text" class="form-control" formControlName = "origins">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Details</label>
+            <input type="text" class="form-control" formControlName = "details">
+          </div>
+        </form>
+        <p>Before clicking any button, please check details?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showUpdate" class="update" data-bs-dismiss="modal" (click)="UpdateComics()">Update</button>
+        <button type="button" *ngIf="showAdd" class="button" data-bs-dismiss="modal" (click)="postComicDetials()">Post Request</button>
+      </div>
+    </div>
+  </div>
+</div>

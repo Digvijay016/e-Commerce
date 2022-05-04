@@ -1,0 +1,31 @@
+div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5% !important;
+}
+
+div a{
+    background-color: #518fe2;
+    padding: .3rem 1rem;
+    margin: .2rem .15rem;
+    border-radius: 10rem;
+    color: white;
+}
+
+.selected{
+    color: white !important;
+    background-color: #053370 !important;
+    cursor: pointer;
+    /* transform: scale(1.1);
+    transition: .3s ease-in-out; */
+}
+
+div a:hover{
+    opacity: 0.7;
+    color: #518fe2;
+    background-color: white;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .3s ease-in-out;
+}

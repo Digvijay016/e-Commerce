@@ -1,0 +1,48 @@
+<app-not-found [visible]="!cart || cart.items.length <= 0" notFoundMessage="No Comic Selected"
+    resetLinkText="Go to Homepage!"></app-not-found>
+<div *ngIf="cart && cart.items.length > 0" class="container">
+    <ul>
+        <li *ngFor="let cartItem of cart.items">
+            <div>
+                <img [src]="cartItem.comic.imageUrl" [alt]="cartItem.comic.name">
+            </div>
+            <div>
+                <a (click)="comicClick(cartItem)">
+                    {{cartItem.comic.name}}
+                </a>
+            </div>
+            <div>
+                <select #quantitySelect (change)="changeQuantity(cartItem,quantitySelect.value)">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div>
+                {{cartItem.price | currency}}
+            </div>
+            <div>
+                <button class="remove-button" (click)="removeFromCart(cartItem)"><i class="fa fa-trash"></i>
+                    Remove</button>
+            </div>
+        </li>
+    </ul>
+    <div class="checkout">
+        <div>
+            <div class="comic-count">
+                {{cart.totalQuantity}}
+            </div>
+            <div class="total-price">
+                {{cart.totalPrice | currency}}
+            </div>
+        </div>
+        <a class="pay" (click)="checkedOut()"><i class="fa fa-dollar"></i> Proceed To
+            Checkout</a>
+        <br>
+        <a class="text_color" (click)="comicList()"><i class="fa fa-book"></i> Go Back to Comic List</a>
+        <br>
+        <a class="empty text_color" (click)="emptyFromCart()"><i class="fa fa-trash"></i> Empty Cart</a>
+    </div>
+</div>

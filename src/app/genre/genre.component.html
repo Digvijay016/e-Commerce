@@ -1,0 +1,6 @@
+<div *ngIf="genres" [style.justifyContent]="justifyContent">
+    <a *ngFor="let genre of genres" (click)="genreCount(genre)" [ngClass]="{'selected': comicGenreName === genre.name}">{{genre.name}}({{genre.count}})</a>
+</div>
+<div *ngIf="cartPageGenres" [style.justifyContent]="justifyContent">
+    <a *ngFor="let genrename of cartPageGenres" [ngClass]="{'selected': comicGenreName === genrename}" (click)="genreName(genrename)">{{genrename}}</a>
+</div>
