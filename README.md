@@ -16,7 +16,7 @@ npm install @popperjs/core --save
 
 ## Run Json Server First because API is in localhost:3000/posts
 
-If json-server is not installed please use ###npm install -g json-server
+If json-server is not installed please use `npm install -g json-server`
 
 json-server --watch db.json
 
